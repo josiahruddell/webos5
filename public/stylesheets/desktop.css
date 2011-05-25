@@ -1,0 +1,69 @@
+* 											{ margin: 0; padding: 0; color: #c4c4b8; font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif;  }
+a                                           { cursor: default; color: #c4c4b8; text-decoration: none; font-size: 8pt; font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; }
+html, body 									{ width: 100%; height: 100%; overflow: hidden;}
+html										{ background: #17294c url(../Images/desktop-bg-1.jpg) 0 0 no-repeat; /*background-size: auto 100%*/ }
+.menu 										{ position: fixed; height: 100%; width: 95px; background: url('../Images/menu-slice.png') repeat-y 0 0; }
+.menu.left									{ left: 0; }
+.menu.right									{ right: 0; }
+.menu ul 									{ position: absolute; top: 0; padding: 73px 7px 0 0; background: url('../Images/menu-top-cap.png') no-repeat 0 0;}
+.menu ul li									{ opacity: .85; position: relative; list-style: none; padding: 8px 0 0 13px; width: 100px; height: 100px;  background: url('../Images/menuItem.png') no-repeat 0 0; margin: -27px 0 0 -23px; }
+.menu ul li:hover                           { opacity: 1; }
+.menu ul li.one                             { background-position: -2px 0 }
+.menu ul li.two                             { background-position: -112px 0 }
+.menu ul li.three                           { background-position: -222px 0 }
+.menu ul li.four                            { background-position: -2px -110px }
+.menu ul li a								{ font-size: .78em;   }
+.menu ul li span							{ position: absolute; top:75px; left: 25px; display:block; width: 8px; height: 5px; background: url(../Images/icon-dot.png) 0 0 no-repeat; }
+
+.menu .options                              { position: absolute; bottom: 25px; right: 9px; }
+.menu .options .large                       { width: 91px; height: 72px; background: url('../Images/menu-option-large.png') no-repeat 0 0; }
+.menu .options .large span                  { height: 54px }
+.menu .options .small                       { width: 91px; height: 129px; background: url('../Images/menu-option-small-many.png') no-repeat 0 0; }
+.menu .options span                         { cursor: default; display: block; background: url(../Images/icon-dot.png) 9px bottom no-repeat; font-size: .7em; padding: 5px 0 5px 25px; }
+
+/* --> WINDOWS --> */
+
+.strip                                      { display:none; position: absolute; width: 674px; height: 158px; background: url('../Images/strip-menu-full.png') no-repeat 0 100%; }
+.strip .content                             { position: absolute; bottom: 45px; left: 60px; }
+.strip .close                               { position: absolute; right:5px; top: 5px; width: 35px; height: 30px; }
+.message                                    { display:none; position: absolute; background: url('../Images/message.png') no-repeat 0 100%; }
+.message .content                           { position: absolute; bottom: 50px; left: 181px; color: #1c2433 !important; width: 325px; height:83px; overflow-y: auto;  }
+.message .content *                         { color: #1c2433 }
+.message .close                             { position: absolute; right:5px; top: 5px; width: 35px; height: 30px; }
+.message .input                             { position: absolute; bottom: 15px; left: 180px; color: #1c2433; width: 325px; height:20px; }
+.message .input .send                       { width: 100%; opacity: .8; color: #444; }
+.sketch                                     { display: none; position: absolute; background: url('../Images/sketch-full.png') no-repeat 0 100%; }
+.sketch .close                              { position: absolute; bottom:13px; left: 40px; width: 35px; height: 30px;  }
+.notewriter                                 { display: none; position: absolute; background: url('../Images/notewriter-full.png') no-repeat 0 100%; }
+.notewriter .close                          { position: absolute; bottom:13px; left: 40px; width: 35px; height: 30px; }
+
+.people										{ display: none; position: absolute; }
+.people .content-wrapper                    { background: url(../Images/Chat.png) left top no-repeat; height: 100%; width: 318px; }
+.people .content                            { display: none; padding: 10px; }
+.people .content h2                         { padding-left: 10px; }
+.people .content input                      { width: 80%; font-size: 16pt; margin-top: 15px; margin-left: 8px; color: #555}
+.people .init                               { position: absolute; left: 30%; top: 35%; color: #555 }
+.people .content .scroll-pane               { margin: 10px 0; height: 360px; width: 269px; overflow: auto; }
+.people .content .scroll-pane li            { padding: 5px 0 5px 5px; list-style: none; }
+.people .content .scroll-pane li a          { color: #333; font-size: 10pt; padding-left: 5px; }
+.people .content .scroll-pane li:hover      { background-color: #f5f5f2; border-radius: 3px; }
+.people .collapse                           { width: 40px; height: 40px; position: absolute; top: 0; right: 0px; }
+.people.up .scroll-pane                     { display: none; }
+
+
+
+.window										{ display: none; position: absolute; background-size: 100% auto; background: url(../Images/file.png) left top no-repeat; width: 1312px; height: 584px; border: 1px solid #000; }
+
+
+/* --> ACTIONS --> */
+.button                                     { float: left; width: 115px; height: 95px; }
+
+/* --> global elements --> */
+
+.login                                      { position: absolute; top: 20px; right: 35px; }
+
+.text                                       { z-index: 100 }
+
+
+
+

@@ -1,0 +1,44 @@
+!!!5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/desktop.css')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js')
+    script(src="/javascripts/lib/jquery-ui-1.8rc3.custom.min.js")
+    script(src="/javascripts/lib/Plugins/jquery.tmpl.min.js")
+    script(src="/javascripts/lib/socket.io/socket.io.js")
+    script(src="/javascripts/jui/jui.desktop.jquery.js")
+    script(src="/javascripts/jui/JUI.js")
+    script(src="/javascripts/class/base/Class.js")
+    script(src="/javascripts/class/WindowManager.js")
+    script(src="/javascripts/class/base/Desktop.js")
+    script(src="/javascripts/sockets/Socket.js")
+    script(src="/javascripts/sockets/SocketSubscriber.js")
+    script(src="/javascripts/class/base/Action.js")
+    script(src="/javascripts/class/base/Window.js")
+    script(src="/javascripts/class/Button.js")
+    script(src="/javascripts/class/Icon.js")
+    script(src="/javascripts/class/Message.js")
+    script(src="/javascripts/class/File.js")
+    script(src="/javascripts/class/Sketch.js")
+    script(src="/javascripts/class/MenuStrip.js")
+    script(src="/javascripts/class/NoteWriter.js")
+    script(src="/javascripts/class/People.js")
+    script(src="/javascripts/jui/jui.desktop.config.js")
+    script(src="/javascripts/jui/Load.js")
+  body
+    div#desktop
+      div.menu.right
+        a.login.text Logout
+        ul#menu
+        div.options
+          div.large
+            span User
+          div.small
+            span Save
+            span File
+            span Sync
+            span Admin
+            span Settings
+      a#UserConfig(href='/user/1/config.json')
+      input#username(name='username', style='position: absolute; top:20px; right: 200px;')
