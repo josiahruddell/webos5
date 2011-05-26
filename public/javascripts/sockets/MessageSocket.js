@@ -9,8 +9,6 @@ console.log('Loaded ' + process.argv[1] + ', server running at ' + process.argv[
 
 server.listen(process.argv[2], process.argv[3]);
 
-// socket.io, I choose you
-// simplest chat application evar
 var io = io.listen(server)
   , chats = {}
   , chatSeed = 0

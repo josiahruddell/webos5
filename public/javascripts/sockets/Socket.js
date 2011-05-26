@@ -64,7 +64,7 @@
         },
         subscribers: {},
         config: {
-            port: 3000,             // OOPS! need to learn port from worker role
+            port: 80,             // OOPS! need to learn port from worker role
             // maybe send from server config. $D.config.namedSocketPort[config.name]
             // OR! look into proxy to use paths instead of ports, like: path = '/socketio/messagesocket'
             socketName: '',
