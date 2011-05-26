@@ -63,7 +63,7 @@
         },
         config: {
             templateNode: '#message', type: 'Message', w: 623, h: 159, x: 300, y: 50, orientX: 'right', fx: 'slideToggle', duration: 150,
-            template: '/content/ui/templates/window.htm', parentLink: null,
+            template: '/ui/templates/window.htm', parentLink: null,
             isRestore: false
         }
     });
