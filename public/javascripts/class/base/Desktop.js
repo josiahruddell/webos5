@@ -57,33 +57,6 @@
             // todo: cancel event so that click doesnt process
             this.menu.sortable({ items: 'li' });
             this.activated = true;
-
-
-            // todo: get web socket url from config
-            /*if (!!window.WebSocket)
-            false && this.openWebSocket();*/
-        },
-        openWebSocket: function () {
-
-            var ws = new WebSocket('ws://localhost:8181/consoleappsample');
-
-            // when data is comming from the server, this metod is called
-            ws.onmessage = function (evt) {
-                //desktop.debug[0].innerHTML += evt.data + '<br/>';
-                $D.debug.append(evt.data);
-                var message = new $N.Window($N.config.Message, evt.data);
-                //message.setData(evt.data);
-            };
-
-            // when the connection is established, this method is called
-            ws.onopen = function () {
-                $D.debug.append('.. connection open<br/>');
-            };
-
-            // when the connection is closed, this method is called
-            ws.onclose = function () {
-                $D.debug.append('.. connection closed<br/>');
-            }
         },
         restore: function () {
             // restore config (userdefined desktop preferences)
@@ -120,7 +93,7 @@
         user: {
             _username: '',
             get username(){
-                return this._username || $('#username').val() || 'Current User';
+                return this._username || $('#username').val() || 'unknown user';
             },
             set username(val){
                 this._username = val;

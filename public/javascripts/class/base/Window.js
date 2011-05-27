@@ -63,7 +63,9 @@
             this.$link.bind('dblclick', $.proxy(this.close, this))
             this.$link.bind('mousedown', $.proxy(this.raise, this));
             this.$link.find('.close').bind('click', $.proxy(this.close, this))
-            this.$link.draggable();
+            var c = this.$link.draggable().find('.content').find('.scroll-pane')
+			if(!c.length) c = c.end();
+			c.mousedown(function(e){ e.stopPropagation(); });
         },
         //Vurtual get data
         getData: function () { },

@@ -34,12 +34,12 @@ app.configure('production', function() {
 // Routes
 app.get('/', function(req, res) {
 	res.render('index', {
-		title: 'Express'
+		title: 'WebOS5 - Reinventing the Interwebs'
 	});
 });
 
 app.get('/user/:id/config.:format?', function(req, res) {
-	res.send({"elements":[{"type":"Icon","config":{"type":"icon","text":"Programs","templateNode":"#icon-one","throws":[{"name":"ProgramsClicked","on":"click","invoke":{"type":"MenuStrip","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"Message","templateNode":"#icon-two","throws":[{"name":"MessageClicked","on":"click","invoke":{"type":"Message","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"Notewriter","templateNode":"#icon-three","throws":[{"name":"NotewriterClicked","on":"click","invoke":{"type":"NoteWriter","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"YouTube","templateNode":"#icon-four","throws":[{"name":"YouTubeClicked","on":"click","invoke":{"type":"YouTube","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"People","templateNode":"#icon-four","throws":[{"name":"PeopleClicked","on":"click","invoke":{"type":"People","config":{}}}]}}]});
+	res.send({"elements":[{"type":"Icon","config":{"type":"icon","text":"Programs","templateNode":"#icon-one","throws":[{"name":"ProgramsClicked","on":"click","invoke":{"type":"MenuStrip","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"Notewriter","templateNode":"#icon-three","throws":[{"name":"NotewriterClicked","on":"click","invoke":{"type":"NoteWriter","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"People","templateNode":"#icon-four","throws":[{"name":"PeopleClicked","on":"click","invoke":{"type":"People","config":{}}}]}}]});
 });
 
 app.listen(80);
@@ -117,8 +117,8 @@ io.on('connection', function (client) {
         if (io.clientsIndex[sessionId] && io.clientsIndex[sessionId] != client)
             activeClients.push({ 
                 from: { sessionId: sessionId },
-                data: { name: io.clientsIndex[sessionId].username }
+                data: { name: io.clientsIndex[sessionId].username || 'unknown' }
             });
-
+	console.log('\tconnected sending:', activeClients);
     client.send({ name: 'thisSessionOpened', type: 'event', users: activeClients });
 });
