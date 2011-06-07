@@ -72,7 +72,7 @@
             msg = msg.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
             var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-            return msg.replace(exp,"<a href='$1'>$1</a>");
+            return msg.replace(exp,'<a target="_blank" href="$1">$1</a>');
         }
         return msg;
     };

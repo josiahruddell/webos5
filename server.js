@@ -34,7 +34,7 @@ app.configure('production', function() {
 // Routes
 app.get('/', function(req, res) {
 	res.render('index', {
-		title: 'WebOS5 - Reinventing the Interwebs'
+		title: 'WebOS5 - a new interwebs'
 	});
 });
 
