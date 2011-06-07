@@ -68,7 +68,13 @@
         }
     });
     function esc(msg) {
-        return msg ? msg.replace(/</g, '&lt;').replace(/>/g, '&gt;') : msg;
+        if(msg) {
+            msg = msg.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+            return msg.replace(exp,"<a href='$1'>$1</a>");
+        }
+        return msg;
     };
 
 })(JUI, $D, jQuery);
