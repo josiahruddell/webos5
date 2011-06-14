@@ -1,4 +1,4 @@
-﻿/*!
+/*!
 * Josiah Ruddell JUI JavaScript
 *
 * Copyright (c) 2010 Josiah Ruddell, http://josiahruddell.com/
@@ -35,7 +35,9 @@
             success: function (config) {
                 // activate the desktop
                 // TODO: make loader gather username.
+                desktop.port = $('#port').val()*1;
                 desktop.activate(config);
+                
             }
         });
     });

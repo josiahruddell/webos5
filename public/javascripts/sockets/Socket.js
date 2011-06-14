@@ -1,4 +1,4 @@
-﻿;!!window['JUI'] && (function ($N, $D, $) {
+;!!window['JUI'] && (function ($N, $D, $) {
 
     //    $D.registerSocket('messageSocket', function () {
     //        return new $N.Socket({
@@ -17,8 +17,9 @@
             $.extend(this.config, config);
             // require('io' in window');
             // need to do some checking here for already in use sockets.
-            this.socket = new io.Socket(this.config.hostName, {
-                port: this.config.port,
+            
+            this.socket = new io.Socket(this.config.hostName(), {
+                //port: this.config.port(),
                 rememberTransport: this.config.rememberTransport
             });
             if (this.config.autoConnect && this.socket) {
@@ -64,11 +65,11 @@
         },
         subscribers: {},
         config: {
-            port: 80,             // OOPS! need to learn port from worker role
+            port: function(){ return $D.port },
             // maybe send from server config. $D.config.namedSocketPort[config.name]
             // OR! look into proxy to use paths instead of ports, like: path = '/socketio/messagesocket'
             socketName: '',
-            hostName: location.hostname,
+            hostName: function(){ return location.hostname },
             rememberTransport: false,
             displayName: 'Socket',
             autoConnect: false,
