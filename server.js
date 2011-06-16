@@ -2,8 +2,14 @@
  * Module dependencies.
  */
 
+
 var express = require('express')
-	, io = require('socket.io');
+	, io = require('socket.io')
+	, cradle = require('cradle');
+	cradle.setup({host: 'webos5.iriscouch.com', options: {cache: true, raw: false}});
+	var userDb = new (cradle.Connection)().database('_users');
+	//if(!userDb.exists()) userDb.create();
+	//console.log('db info: ', userDb.all());
 
 var app = module.exports = express.createServer();
 
@@ -35,6 +41,13 @@ app.configure('production', function() {
 app.get('/', function(req, res) {
 	res.render('index', {
 		title: 'WebOS5 - a new interwebs'
+	});
+});
+
+app.get('/login', function(req, res) {
+	res.render('login', {
+		title: 'Login',
+		layout: 'fblayout'
 	});
 });
 
