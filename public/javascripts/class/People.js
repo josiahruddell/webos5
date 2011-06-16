@@ -1,4 +1,4 @@
-﻿;!!window['JUI'] && (function ($N, $) {
+;!!window['JUI'] && (function ($N, $) {
     $N.People = $N.Window.extend({
         // functions
         init: function (config, data, isRestore) {

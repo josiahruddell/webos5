@@ -2,15 +2,17 @@
  * Module dependencies.
  */
 
-
 var express = require('express')
 	, io = require('socket.io')
-	, cradle = require('cradle');
+	, cradle = require('cradle')
+	, port = process.env.C9_PORT || 80
+    ;
+	
 	cradle.setup({host: 'webos5.iriscouch.com', options: {cache: true, raw: false}});
 	var userDb = new (cradle.Connection)().database('_users');
 	//if(!userDb.exists()) userDb.create();
 	//console.log('db info: ', userDb.all());
-
+	
 var app = module.exports = express.createServer();
 
 // Configuration
@@ -40,7 +42,8 @@ app.configure('production', function() {
 // Routes
 app.get('/', function(req, res) {
 	res.render('index', {
-		title: 'WebOS5 - a new interwebs'
+		title: 'WebOS5 - a new interwebs',
+        port: port
 	});
 });
 
@@ -55,9 +58,9 @@ app.get('/user/:id/config.:format?', function(req, res) {
 	res.send({"elements":[{"type":"Icon","config":{"type":"icon","text":"Programs","templateNode":"#icon-one","throws":[{"name":"ProgramsClicked","on":"click","invoke":{"type":"MenuStrip","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"Notewriter","templateNode":"#icon-three","throws":[{"name":"NotewriterClicked","on":"click","invoke":{"type":"NoteWriter","config":{}}}]}},{"type":"Icon","config":{"type":"icon","text":"People","templateNode":"#icon-four","throws":[{"name":"PeopleClicked","on":"click","invoke":{"type":"People","config":{}}}]}}]});
 });
 
-app.listen(80);
+app.listen(port);
 
-console.log("Express server listening on port %d", app.address().port);
+console.log("Express server listening at %s:%d", app.address().address, app.address().port);
 
 var io = io.listen(app)
   , chats = {}

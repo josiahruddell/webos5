@@ -26,5 +26,20 @@ html
     script(src="/javascripts/class/People.js")
     script(src="/javascripts/jui/jui.desktop.config.js")
     script(src="/javascripts/jui/Load.js")
-  body!= body
-    
+  body
+    div#desktop
+      div.menu.right
+        a.login.text Logout
+        ul#menu
+        div.options
+          div.large
+            span User
+          div.small
+            span Save
+            span File
+            span Sync
+            span Admin
+            span Settings
+      a#UserConfig(href='/user/1/config.json')
+      input#username(name='username', style='position: absolute; top:20px; right: 200px;')
+      div!=body

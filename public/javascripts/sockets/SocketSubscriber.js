@@ -1,4 +1,4 @@
-﻿;!!window['JUI'] && (function ($N, $D, $) {
+;!!window['JUI'] && (function ($N, $D, $) {
     $N.SocketSubscriber = Class.extend({
         // io.Socket is required
         init: function (config) { // constructor
