@@ -1,0 +1,26 @@
+.login
+  a.tab.login(href="#") Login
+  a.tab.register(href="#") Register 
+  section.login
+    form(action="/login", method="post", data-trigger="#login-link")
+      input.username(name="user[name]", placeholder="username")
+      input.password(name="user[password]", type="password", placeholder="password")
+      input(type="submit", style="visibility:hidden")
+  section.register(style="display:none")
+    form(action="/login", method="post", data-trigger="#login-link")
+      input.username(name="user[name]", placeholder="username")
+      input.password(name="user[password]", type="password", placeholder="password")
+      input(name="usesr[confirm_password]", type="password", placeholder="confirm password")
+      input(type="submit", style="visibility:hidden")
+  a.do(href="#", id="login-link") Login
+  span.att att.
+  span.count 01
+script
+  $(function(){
+    var usr = $('input.username:visible'), pass = $('input.password:visible');
+    usr.add(pass).focus(function(){ $(this).addClass('focus'); })
+      .blur(function(){ $(this).removeClass('focus'); })
+    $(document).keydown(function(){
+      if(!usr.hasClass('focus') && !pass.hasClass('focus') && !usr.val()) usr.focus();
+    });
+  });
