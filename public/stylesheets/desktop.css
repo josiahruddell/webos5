@@ -61,6 +61,7 @@ html										{ background: #17294c url(/images/desktop-bg-large-1.jpg) 0 0 no-r
 /* --> global elements --> */
 
 .text                                       { z-index: 100 }
+a.text.login                                { position: absolute; top: 20px; right: 35px; }
 
 
 

@@ -3,8 +3,8 @@
  */
 
 var express = require('express')
-	, io = require('socket.io')
-	, cradle = require('cradle')
+    , io = require('socket.io')
+    , cradle = require('cradle')
 	, port = process.env.C9_PORT || 80
     ;
 	
@@ -20,7 +20,7 @@ app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.cookieParser());
-  app.use(express.session({ secret: "session is on dude!" }));
+    app.use(express.session({ secret: "session is on dude!" }));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(require('stylus').middleware({
@@ -41,18 +41,21 @@ app.configure('production', function() {
 	app.use(express.errorHandler());
 });
 
+// dynamic helpers
+
+// action filter
+function authenticate(req, res, next){
+  if(req.session.user) next();
+  else res.redirect('/fblogin?next=' + req.url);
+}
+
 // Routes
-app.get('/', function(req, res) {
-  if (req.session.user){
-	  res.render('index', {
-		  title: 'WebOS5 - a new interwebs',
-          port: port,
-          username: req.session.user ? req.session.user.name : 'unknown user'
-    });
-  }
-  else {
-    res.redirect('/fblogin');
-  }
+app.get('/', authenticate, function(req, res) {
+  res.render('index', {
+	  title: 'WebOS5 - a new interwebs',
+      port: port,
+      username: req.session.user.name || 'unknown user'
+  });
 });
 
 app.get('/fblogin', function(req, res) {
@@ -64,6 +67,11 @@ app.get('/fblogin', function(req, res) {
 
 app.get('/login', function(req, res) {
 	res.render('login', { title: 'Login' });
+});
+
+app.get('/logout', function(req, res) {
+    delete req.session.user;
+    res.redirect('/fblogin');
 });
 
 app.post('/login', function(req, res) {
@@ -80,6 +88,8 @@ app.get('/user/:id/config.:format?', function(req, res) {
 app.listen(port);
 
 console.log("Express server listening at %s:%d", app.address().address, app.address().port);
+
+// pull out into chat.js
 
 var io = io.listen(app)
   , chats = {}
