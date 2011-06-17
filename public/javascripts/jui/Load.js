@@ -26,19 +26,22 @@
 */
 ; !!window['JUI'] && (function ($N, $) {
     $(function () {
+        $('form').ajaxForm();
         // :: load config from server or local
         // :: by this step the user is already authenticated
-        $.ajax({
-            url: $('#UserConfig').attr('href'),
-            type: 'GET',
-            dataType: 'json',
-            success: function (config) {
-                // activate the desktop
-                // TODO: make loader gather username.
-                desktop.port = $('#port').val()*1;
-                desktop.activate(config);
+        if($('#UserConfig').length)
+          $.ajax({
+              url: $('#UserConfig').attr('href'),
+              type: 'GET',
+              dataType: 'json',
+              success: function (config) {
+                  // activate the desktop
+                  // TODO: make loader gather username.
+                  desktop.port = $('#port').val()*1;
+                  desktop.user.username = desktop.user._username = $('#username').val();
+                  desktop.activate(config);
                 
-            }
+              }
         });
     });
 })(JUI, jQuery);

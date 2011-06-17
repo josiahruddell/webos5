@@ -92,12 +92,7 @@
 
         user: {
             _username: '',
-            get username(){
-                return this._username || $('#username').val() || 'unknown user';
-            },
-            set username(val){
-                this._username = val;
-            }
+            username : ''
         },
         config: {},
         sockets: {},

@@ -19,6 +19,8 @@ var app = module.exports = express.createServer();
 app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
+	app.use(express.cookieParser());
+  app.use(express.session({ secret: "session is on dude!" }));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(require('stylus').middleware({
@@ -41,17 +43,34 @@ app.configure('production', function() {
 
 // Routes
 app.get('/', function(req, res) {
-	res.render('index', {
-		title: 'WebOS5 - a new interwebs',
-        port: port
+  if (req.session.user){
+	  res.render('index', {
+		  title: 'WebOS5 - a new interwebs',
+          port: port,
+          username: req.session.user ? req.session.user.name : 'unknown user'
+    });
+  }
+  else {
+    res.redirect('/fblogin');
+  }
+});
+
+app.get('/fblogin', function(req, res) {
+	res.render('fblogin', {
+		title: 'Login',
+		layout: 'fblayout'
 	});
 });
 
 app.get('/login', function(req, res) {
-	res.render('login', {
-		title: 'Login',
-		layout: 'fblayout'
-	});
+	res.render('login', { title: 'Login' });
+});
+
+app.post('/login', function(req, res) {
+	var isValidUsr = true;
+	req.session.user = req.body.user;
+	if(isValidUsr)
+	  res.send({ url: '/' });
 });
 
 app.get('/user/:id/config.:format?', function(req, res) {
