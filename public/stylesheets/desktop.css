@@ -1,19 +1,19 @@
-* 											{ margin: 0; padding: 0; color: #c4c4b8; font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif;  }
+* 											                    { margin: 0; padding: 0; color: #c4c4b8; font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif;  }
 a                                           { cursor: default; color: #c4c4b8; text-decoration: none; font-size: 8pt; font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; }
-html, body 									{ width: 100%; height: 100%; overflow: hidden;}
-html										{ background: #17294c url(/images/desktop-bg-large-1.jpg) 0 0 no-repeat; /*background-size: auto 100%*/ }
-.menu 										{ position: fixed; height: 100%; width: 95px; background: url('/images/menu-slice.png') repeat-y 0 0; }
-.menu.left									{ left: 0; }
-.menu.right									{ right: 0; }
-.menu ul 									{ position: absolute; top: 0; padding: 73px 7px 0 0; background: url('/images/menu-top-cap.png') no-repeat 0 0;}
-.menu ul li									{ opacity: .85; position: relative; list-style: none; padding: 8px 0 0 13px; width: 100px; height: 100px;  background: url('/images/menuItem.png') no-repeat 0 0; margin: -27px 0 0 -23px; }
+html, body 									                { width: 100%; height: 100%; overflow: hidden;}
+html										                    { background: #17294c url(/images/desktop-bg-large-1.jpg) 0 0 no-repeat; /*background-size: auto 100%*/ }
+.menu 									                    { position: fixed; height: 100%; width: 95px; background: url('/images/menu-slice.png') repeat-y 0 0; }
+.menu.left									                { left: 0; }
+.menu.right									                { right: 0; }
+.menu ul 									                  { position: absolute; top: 0; padding: 73px 7px 0 0; background: url('/images/menu-top-cap.png') no-repeat 0 0;}
+.menu ul li									                { opacity: .85; position: relative; list-style: none; padding: 8px 0 0 13px; width: 100px; height: 100px;  background: url('/images/menuItem.png') no-repeat 0 0; margin: -27px 0 0 -23px; }
 .menu ul li:hover                           { opacity: 1; }
 .menu ul li.one                             { background-position: -2px 0 }
 .menu ul li.two                             { background-position: -112px 0 }
 .menu ul li.three                           { background-position: -222px 0 }
 .menu ul li.four                            { background-position: -2px -110px }
-.menu ul li a								{ font-size: .78em;   }
-.menu ul li span							{ position: absolute; top:75px; left: 25px; display:block; width: 8px; height: 5px; background: url(/images/icon-dot.png) 0 0 no-repeat; }
+.menu ul li a								                { font-size: .78em;   }
+.menu ul li span							              { position: absolute; top:75px; left: 25px; display:block; width: 8px; height: 5px; background: url(/images/icon-dot.png) 0 0 no-repeat; }
 
 .menu .options                              { position: absolute; bottom: 25px; right: 9px; }
 .menu .options .large                       { width: 91px; height: 72px; background: url('/images/menu-option-large.png') no-repeat 0 0; }
@@ -37,7 +37,7 @@ html										{ background: #17294c url(/images/desktop-bg-large-1.jpg) 0 0 no-r
 .notewriter                                 { display: none; position: absolute; background: url('/images/notewriter-full.png') no-repeat 0 100%; }
 .notewriter .close                          { position: absolute; bottom:13px; left: 40px; width: 35px; height: 30px; }
 
-.people										{ display: none; position: absolute; }
+.people										                  { display: none; position: absolute; }
 .people .content-wrapper                    { background: url(/images/Chat.png) left top no-repeat; height: 100%; width: 318px; }
 .people .content                            { display: none; padding: 10px; }
 .people .content h2                         { padding-left: 10px; }
@@ -52,7 +52,7 @@ html										{ background: #17294c url(/images/desktop-bg-large-1.jpg) 0 0 no-r
 
 
 
-.window										{ display: none; position: absolute; background-size: 100% auto; background: url(/images/file.png) left top no-repeat; width: 1312px; height: 584px; border: 1px solid #000; }
+.window										                  { display: none; position: absolute; background-size: 100% auto; background: url(/images/file.png) left top no-repeat; width: 1312px; height: 584px; border: 1px solid #000; }
 
 
 /* --> ACTIONS --> */
